@@ -25,7 +25,8 @@ def lowest_expenses(expenses):
     return lowest
 # category wise Expenses  based on the Amount
 def Category_wise_expenses(expenses):
-    Category_total=expenses.groupby("Category")["Amount"].sum()
+    Category_total=expenses.groupby("Category")["Amount"].sum().reset_index()
+    Category_total.columns = ["Category", "Amount"]
     return Category_total
 
 #Daily wise expenses
